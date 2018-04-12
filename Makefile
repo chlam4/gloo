@@ -88,7 +88,7 @@ site: doc
 	mkdocs build
 
 docker-docs: site
-	docker build -t $(DOCKER_USER)/nginx-docs:v$(VERSION) -f Dockerfile.site .
+	docker build -t $(DOCKER_USER)/nginx-docs:v$(shell cat cmd/control-plane/version) -f Dockerfile.site .
 
 #----------------------------------------------------------------------------------
 # Test
